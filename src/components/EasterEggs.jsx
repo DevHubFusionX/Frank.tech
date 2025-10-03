@@ -129,11 +129,11 @@ export default function EasterEggs() {
         </div>
       </motion.div>
 
-      {/* Konami Hint - Repeating */}
+      {/* Konami Hint - Repeating - Desktop Only */}
       <AnimatePresence>
         {showKonamiHint && (
           <motion.div
-            className="fixed top-20 left-4 z-30 bg-gray-900/95 text-gray-300 px-3 py-2 rounded font-mono text-xs border border-gray-600"
+            className="fixed top-20 left-4 z-30 bg-gray-900/95 text-gray-300 px-3 py-2 rounded font-mono text-xs border border-gray-600 hidden md:block"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
