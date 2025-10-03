@@ -1,11 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, ChevronDown, FileText, Shield, HelpCircle } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
+import { useState } from 'react'
 import { smoothScrollTo } from '../utils/smoothScroll'
 
 export default function MobileMenu({ isOpen, onClose }) {
   const location = useLocation()
   const currentPath = location.pathname
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false)
 
   const navItems = [
     { id: 'home', label: 'Home', href: '/' },
@@ -114,20 +116,76 @@ export default function MobileMenu({ isOpen, onClose }) {
                   })}
                 </nav>
                 
-                {/* Quick Actions */}
+                {/* Resources Dropdown */}
                 <div className="mt-8 pt-6" style={{ borderTop: `1px solid var(--color-border)` }}>
-                  <h3 className="text-sm font-semibold mb-4" style={{ color: 'var(--color-text-secondary)' }}>Quick Actions</h3>
+                  <button
+                    onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                    className="flex items-center justify-between w-full text-left mobile-nav-item mb-2"
+                  >
+                    <span>Resources</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${isResourcesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {isResourcesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="ml-4 space-y-2 overflow-hidden"
+                      >
+                        <Link
+                          to="/blog"
+                          onClick={onClose}
+                          className="mobile-nav-item block text-sm flex items-center gap-2"
+                        >
+                          <FileText className="w-4 h-4" />
+                          Blog
+                        </Link>
+                        <Link
+                          to="/cv"
+                          onClick={onClose}
+                          className="mobile-nav-item block text-sm flex items-center gap-2"
+                        >
+                          <FileText className="w-4 h-4" />
+                          My CV
+                        </Link>
+                        <Link
+                          to="/faq"
+                          onClick={onClose}
+                          className="mobile-nav-item block text-sm flex items-center gap-2"
+                        >
+                          <HelpCircle className="w-4 h-4" />
+                          FAQ
+                        </Link>
+                        <Link
+                          to="/privacy"
+                          onClick={onClose}
+                          className="mobile-nav-item block text-sm flex items-center gap-2"
+                        >
+                          <Shield className="w-4 h-4" />
+                          Privacy Policy
+                        </Link>
+                        <Link
+                          to="/terms"
+                          onClick={onClose}
+                          className="mobile-nav-item block text-sm flex items-center gap-2"
+                        >
+                          <FileText className="w-4 h-4" />
+                          Terms of Service
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                
+                {/* Quick Actions */}
+                <div className="mt-6 pt-6" style={{ borderTop: `1px solid var(--color-border)` }}>
+                  <h3 className="text-sm font-semibold mb-4" style={{ color: 'var(--color-text-secondary)' }}>Quick Contact</h3>
                   <div className="space-y-2">
-                    <Link
-                      to="/faq"
-                      onClick={onClose}
-                      className="mobile-nav-item block"
-                    >
-                      FAQ
-                    </Link>
                     <a
                       href="mailto:anyanwufranklin@gmail.com"
-                      className="mobile-nav-item block"
+                      className="mobile-nav-item block text-sm"
                     >
                       📧 Email Me
                     </a>
@@ -135,7 +193,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                       href="https://wa.me/2349127391830"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mobile-nav-item block"
+                      className="mobile-nav-item block text-sm"
                     >
                       💬 WhatsApp
                     </a>
