@@ -45,13 +45,13 @@ export default function Services() {
     <section className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center mb-12 sm:mb-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-black mb-4">Services I Offer</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>Services I Offer</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Comprehensive web development solutions to bring your ideas to life
           </p>
@@ -62,8 +62,8 @@ export default function Services() {
             <motion.div
               key={service.title}
               className="bg-white rounded-lg p-6 shadow-sm border hover:shadow-md transition-shadow"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
             >

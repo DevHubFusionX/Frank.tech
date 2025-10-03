@@ -11,14 +11,14 @@ export default function About() {
     <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          className="grid md:grid-cols-2 gap-16 items-center"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="grid md:grid-cols-2 gap-8 md:gap-16 items-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
           <div>
-            <h2 className="text-4xl font-bold text-black mb-6">About Me</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{ color: 'var(--color-text-primary)' }}>About Me</h2>
             <p className="text-gray-600 text-lg mb-6">
               I'm Anyanwu Franklin, an 18-year-old results-driven Full-Stack MERN Developer with a strong
               track record of designing, developing, and deploying high-performance web applications.

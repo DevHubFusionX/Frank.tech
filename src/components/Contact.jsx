@@ -43,9 +43,10 @@ export default function Contact() {
     <section id="contact" className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
-          className="text-4xl font-bold text-black text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16"
+          style={{ color: 'var(--color-text-primary)' }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
@@ -54,8 +55,8 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-16">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
@@ -87,8 +88,8 @@ export default function Contact() {
           <motion.form
             onSubmit={handleSubmit(onSubmit)}
             className="space-y-6"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
