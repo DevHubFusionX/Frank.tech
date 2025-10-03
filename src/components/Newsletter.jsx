@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion'
 import { Mail, Send, CheckCircle } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import emailjs from 'emailjs-com'
 
 export default function Newsletter() {
   const [email, setEmail] = useState('')
   const [isSubscribed, setIsSubscribed] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY)
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import emailjs from 'emailjs-com'
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
 
@@ -8,6 +8,10 @@ export default function Contact() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY)
+  }, [])
 
   const onSubmit = async (data) => {
     setIsSubmitting(true)
