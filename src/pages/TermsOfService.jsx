@@ -180,7 +180,7 @@ export default function TermsOfService() {
             className="inline-flex items-center gap-2 bg-white text-green-600 px-6 py-3 rounded-full font-medium hover:bg-green-50 transition-colors"
           >
             <Mail className="w-4 h-4" />
-            anyanwufranklin@gmail.com
+           fanyanwu83@gmail.com
           </a>
         </motion.div>
       </div>
