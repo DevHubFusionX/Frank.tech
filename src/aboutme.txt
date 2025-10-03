@@ -1,0 +1,44 @@
+ PROFILE SUMMARY
+ Results-driven Full-Stack MERN Developer with a strong track record of designing, developing, and
+ deploying high-performance web applications. Skilled in React, Node.js, Express, and MongoDB,
+ with expertise in building secure authentication systems, RESTful APIs, and optimized user
+ interfaces. Known for delivering scalable digital solutions that align with business goals while
+ maintaining clean, maintainable code. Continuously learning and adapting to modern development
+ practices, including serverless technologies and AI-driven tools.
+ TECHNICAL SKILLS
+ Frontend: HTML5, CSS3, JavaScript (ES6+), React.js, Redux Toolkit, Tailwind CSS, Bootstrap,
+ Framer Motion, Responsive Design
+ Backend: Node.js, Express.js, MongoDB (Mongoose), Firebase (Auth & DB), REST APIs,
+ Authentication (JWT, Email OTP)
+ Tools & Workflow: Git, GitHub, Postman, VS Code, Vercel, Render, Netlify, Figma, Canva
+ Soft Skills: Problem-solving, UI/UX awareness, effective communication, team collaboration,
+ attention to detail
+ EXPERIENCE
+ Freelance Full-Stack Developer (Remote) | Jan 2024 – Present
+ • Designed and developed full-stack web applications using the MERN stack, incorporating secure
+ user authentication and robust REST APIs.
+ • Delivered responsive, SEO-friendly user interfaces using React, Tailwind CSS, and Framer
+ Motion, resulting in improved user engagement.
+ • Optimized application performance by 30%+ through code splitting, lazy loading, and image
+ optimization techniques.
+ • Partnered with clients to translate Figma mockups into functional digital solutions tailored to
+ business requirements.
+ PROJECTS
+ HubFusionX (CMS Platform) – React, Node.js, MongoDB
+ Developed a custom CMS with role-based access (admin, editor, author), SEO tools, and post
+ scheduling (WIP).
+ Moderate Textile (E-commerce Store) – React, Express, MongoDB
+ Built a full-stack online store featuring product listings, detail pages, WhatsApp integration, and an
+ admin dashboard.
+ Peller Branding (Corporate Website) – React, Tailwind
+ Developed a modern, responsive corporate website aligned with branding and client objectives.
+ Portfolio & More Projects: my-portfolio
+EDUCATION
+ NIIT Lagos, Agbara — Web Development Program (2024 – Present)
+ • Focused on frontend technologies (React, JavaScript) and backend development (Node.js,
+ Express, MongoDB).
+ • Hands-on training in building REST APIs, working with MongoDB, and deploying full-stack
+ applications.
+ INTERESTS
+ Exploring AI applications in web development • Open-source contributions • Tech blogging •
+ Serverless architectures • Continuous learning in Next.js and advanced MERN stack solution
