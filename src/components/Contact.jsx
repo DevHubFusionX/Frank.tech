@@ -13,17 +13,16 @@ export default function Contact() {
     setIsSubmitting(true)
 
     try {
-      // Replace with your EmailJS credentials
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        import.meta.env.VITE_REACT_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: data.name,
           from_email: data.email,
           message: data.message,
           to_name: 'Anyanwu Franklin'
         },
-        'YOUR_PUBLIC_KEY'
+        import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY
       )
 
       setIsSubmitted(true)

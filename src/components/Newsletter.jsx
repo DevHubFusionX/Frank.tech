@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Mail, Send, CheckCircle } from 'lucide-react'
 import { useState } from 'react'
+import emailjs from 'emailjs-com'
 
 export default function Newsletter() {
   const [email, setEmail] = useState('')
@@ -13,12 +14,28 @@ export default function Newsletter() {
 
     setIsLoading(true)
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_REACT_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: 'Newsletter Subscriber',
+          from_email: email,
+          message: `New newsletter subscription from: ${email}`,
+          to_name: 'Anyanwu Franklin',
+          subject: 'Newsletter Subscription'
+        },
+        import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY
+      )
+      
       setIsSubscribed(true)
-      setIsLoading(false)
       setEmail('')
-    }, 1500)
+    } catch (error) {
+      console.error('Newsletter subscription failed:', error)
+      alert('Subscription failed. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   if (isSubscribed) {

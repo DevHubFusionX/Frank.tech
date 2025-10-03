@@ -40,6 +40,7 @@ export default function Footer() {
               <Link to="/cv" className="block transition-colors hover:translate-x-1 duration-200" style={{ color: 'var(--color-text-secondary)' }}>My CV</Link>
               <Link to="/faq" className="block transition-colors hover:translate-x-1 duration-200" style={{ color: 'var(--color-text-secondary)' }}>FAQ</Link>
               <Link to="/privacy" className="block transition-colors hover:translate-x-1 duration-200" style={{ color: 'var(--color-text-secondary)' }}>Privacy Policy</Link>
+              <Link to="/terms" className="block transition-colors hover:translate-x-1 duration-200" style={{ color: 'var(--color-text-secondary)' }}>Terms of Service</Link>
             </div>
           </div>
 
