@@ -108,12 +108,12 @@ const handleDownload = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+            <div className="w-32 h-32 bg-gray-800 rounded-full flex items-center justify-center">
               <User className="w-16 h-16 text-white" />
             </div>
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>{personalInfo.name}</h1>
-              <h2 className="text-2xl text-blue-600 mb-4">{personalInfo.title}</h2>
+              <h2 className="text-2xl text-teal-600 mb-4">{personalInfo.title}</h2>
               <div className="flex flex-wrap justify-center md:justify-start gap-4" style={{ color: 'var(--color-text-secondary)' }}>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
@@ -125,11 +125,11 @@ const handleDownload = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Globe className="w-4 h-4" />
-                  <a href={personalInfo.website} className="text-blue-600 hover:underline">Portfolio</a>
+                  <a href={personalInfo.website} className="text-teal-600 hover:underline">Portfolio</a>
                 </div>
               </div>
             </div>
-            <button onClick={handleDownload} className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            <button onClick={handleDownload} className="flex items-center gap-2 bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition-colors">
               <Download className="w-4 h-4" />
               Download PDF
             </button>
@@ -145,7 +145,7 @@ const handleDownload = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
         >
           <h3 className="text-2xl font-bold mb-4 flex items-center gap-2" style={{ color: 'var(--color-text-primary)' }}>
-            <User className="w-6 h-6 text-blue-600" />
+            <User className="w-6 h-6 text-teal-600" />
             Professional Summary
           </h3>
           <p className="leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>{summary}</p>
@@ -160,7 +160,7 @@ const handleDownload = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h3 className="text-2xl font-bold mb-6 flex items-center gap-2" style={{ color: 'var(--color-text-primary)' }}>
-            <Code className="w-6 h-6 text-blue-600" />
+            <Code className="w-6 h-6 text-teal-600" />
             Technical Skills
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
@@ -171,7 +171,7 @@ const handleDownload = () => {
                   {skillList.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm font-medium"
                     >
                       {skill}
                     </span>
@@ -191,21 +191,21 @@ const handleDownload = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <h3 className="text-2xl font-bold mb-6 flex items-center gap-2" style={{ color: 'var(--color-text-primary)' }}>
-            <Briefcase className="w-6 h-6 text-blue-600" />
+            <Briefcase className="w-6 h-6 text-teal-600" />
             Professional Experience
           </h3>
           <div className="space-y-6">
             {experience.map((job, index) => (
-              <div key={index} className="border-l-4 border-blue-600 pl-6">
+              <div key={index} className="border-l-4 border-teal-600 pl-6">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                   <h4 className="text-xl font-semibold" style={{ color: 'var(--color-text-primary)' }}>{job.title}</h4>
-                  <span className="text-blue-600 font-medium">{job.period}</span>
+                  <span className="text-teal-600 font-medium">{job.period}</span>
                 </div>
                 <p className="mb-3" style={{ color: 'var(--color-text-secondary)' }}>{job.company} • {job.location}</p>
                 <ul className="space-y-2">
                   {job.achievements.map((achievement, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
                       <span style={{ color: 'var(--color-text-secondary)' }}>{achievement}</span>
                     </li>
                   ))}
@@ -224,7 +224,7 @@ const handleDownload = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <h3 className="text-2xl font-bold mb-6 flex items-center gap-2" style={{ color: 'var(--color-text-primary)' }}>
-            <Code className="w-6 h-6 text-blue-600" />
+            <Code className="w-6 h-6 text-teal-600" />
             Featured Projects
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
@@ -241,7 +241,7 @@ const handleDownload = () => {
                 </div>
                 <a
                   href={project.link}
-                  className="text-blue-600 hover:underline flex items-center gap-1"
+                  className="text-teal-600 hover:underline flex items-center gap-1"
                 >
                   <Globe className="w-4 h-4" />
                   View Project
@@ -261,14 +261,14 @@ const handleDownload = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <h3 className="text-2xl font-bold mb-6 flex items-center gap-2" style={{ color: 'var(--color-text-primary)' }}>
-              <GraduationCap className="w-6 h-6 text-blue-600" />
+              <GraduationCap className="w-6 h-6 text-teal-600" />
               Education
             </h3>
             {education.map((edu, index) => (
               <div key={index}>
                 <h4 className="text-lg font-semibold" style={{ color: 'var(--color-text-primary)' }}>{edu.degree}</h4>
                 <p style={{ color: 'var(--color-text-secondary)' }}>{edu.institution}</p>
-                <p className="text-blue-600 font-medium">{edu.period}</p>
+                <p className="text-teal-600 font-medium">{edu.period}</p>
               </div>
             ))}
           </motion.div>
@@ -281,13 +281,13 @@ const handleDownload = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <h3 className="text-2xl font-bold mb-6 flex items-center gap-2" style={{ color: 'var(--color-text-primary)' }}>
-              <Award className="w-6 h-6 text-blue-600" />
+              <Award className="w-6 h-6 text-teal-600" />
               Certifications
             </h3>
             <ul className="space-y-3">
               {certifications.map((cert, index) => (
                 <li key={index} className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-blue-600" />
+                  <Award className="w-4 h-4 text-teal-600" />
                   <span style={{ color: 'var(--color-text-secondary)' }}>{cert}</span>
                 </li>
               ))}

@@ -96,10 +96,7 @@ export default function TermsOfService() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div 
-            className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6"
-            style={{ backgroundColor: 'var(--color-primary)' }}
-          >
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-teal-600 rounded-full mb-6">
             <FileText className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-5xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>Terms of Service</h1>
@@ -144,10 +141,7 @@ export default function TermsOfService() {
                 whileHover={{ y: -5 }}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div 
-                    className="w-12 h-12 rounded-lg flex items-center justify-center"
-                    style={{ backgroundColor: 'var(--color-primary)' }}
-                  >
+                  <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center">
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
                   <h2 className="text-2xl font-bold" style={{ color: 'var(--color-text-primary)' }}>{section.title}</h2>
@@ -158,10 +152,7 @@ export default function TermsOfService() {
                 <ul className="space-y-3">
                   {section.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-start gap-3">
-                      <div 
-                        className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                        style={{ backgroundColor: 'var(--color-primary)' }}
-                      ></div>
+                      <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
                       <span style={{ color: 'var(--color-text-secondary)' }}>{item}</span>
                     </li>
                   ))}
@@ -173,23 +164,23 @@ export default function TermsOfService() {
 
         {/* Contact Section */}
         <motion.div
-          className="bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl p-8 text-center text-white"
+          className="bg-gray-900 rounded-2xl p-8 text-center text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
           <Mail className="w-12 h-12 mx-auto mb-4" />
           <h2 className="text-2xl font-bold mb-4">Questions About Terms?</h2>
-          <p className="text-green-100 mb-6">
+          <p className="text-gray-300 mb-6">
             If you have any questions about these terms or need clarification on any service details, 
             don't hesitate to get in touch.
           </p>
           <a 
-            href="mailto:fanyanwu83@gmail.com" 
-            className="inline-flex items-center gap-2 bg-white text-green-600 px-6 py-3 rounded-full font-medium hover:bg-green-50 transition-colors"
+            href="mailto:anyanwufranklin@gmail.com" 
+            className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-3 rounded-full font-medium hover:bg-teal-700 transition-colors"
           >
             <Mail className="w-4 h-4" />
-           fanyanwu83@gmail.com
+            anyanwufranklin@gmail.com
           </a>
         </motion.div>
       </div>

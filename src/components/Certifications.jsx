@@ -10,7 +10,8 @@ export default function Certifications() {
       status: 'In Progress',
       description: 'Comprehensive certification in full-stack web development using MERN stack',
       skills: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
-      color: 'bg-gradient-to-br from-blue-500 to-purple-600'
+      color: 'bg-gradient-to-br from-blue-500 to-purple-600',
+      certificateUrl: null
     },
     {
       title: 'JavaScript ES6+ Proficiency',
@@ -19,7 +20,8 @@ export default function Certifications() {
       status: 'Completed',
       description: 'Advanced JavaScript concepts and modern ES6+ features implementation',
       skills: ['ES6+', 'Async/Await', 'Modules', 'Arrow Functions'],
-      color: 'bg-gradient-to-br from-yellow-500 to-orange-600'
+      color: 'bg-gradient-to-br from-yellow-500 to-orange-600',
+      certificateUrl: null
     },
     {
       title: 'React.js Development',
@@ -28,7 +30,8 @@ export default function Certifications() {
       status: 'Completed',
       description: 'Advanced React concepts including hooks, context, and state management',
       skills: ['React Hooks', 'Redux Toolkit', 'Context API', 'Component Design'],
-      color: 'bg-gradient-to-br from-cyan-500 to-blue-600'
+      color: 'bg-gradient-to-br from-cyan-500 to-blue-600',
+      certificateUrl: null
     },
     {
       title: 'MongoDB Database Design',
@@ -37,7 +40,8 @@ export default function Certifications() {
       status: 'Completed',
       description: 'Database design, optimization, and integration with Node.js applications',
       skills: ['MongoDB', 'Mongoose', 'Database Design', 'Aggregation'],
-      color: 'bg-gradient-to-br from-green-500 to-teal-600'
+      color: 'bg-gradient-to-br from-green-500 to-teal-600',
+      certificateUrl: null
     }
   ]
 
@@ -101,10 +105,17 @@ export default function Certifications() {
                   ))}
                 </div>
                 
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <ExternalLink className="w-4 h-4" />
-                  <span>View Certificate</span>
-                </div>
+                {cert.certificateUrl && (
+                  <a 
+                    href={cert.certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span>View Certificate</span>
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

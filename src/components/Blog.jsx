@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
 import { Calendar, ArrowRight } from 'lucide-react'
+import { useMemo } from 'react'
 import Newsletter from './Newsletter'
 
 export default function Blog() {
-  const articles = [
+  const articles = useMemo(() => [
     {
       title: 'Building Scalable MERN Applications',
       excerpt: 'Best practices for structuring and optimizing full-stack applications with MongoDB, Express, React, and Node.js.',
@@ -28,7 +29,7 @@ export default function Blog() {
       category: 'AI & Tech',
       image: 'bg-gradient-to-br from-orange-500 to-red-600'
     }
-  ]
+  ], [])
 
   return (
     <section className="py-20">
@@ -49,11 +50,11 @@ export default function Blog() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article, index) => (
             <motion.article
-              key={article.title}
+              key={`article-${index}`}
               className="bg-white rounded-lg overflow-hidden shadow-sm border group cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
             >

@@ -21,20 +21,32 @@ export default function BlogSearch({ articles, onFilter }) {
   }
 
   const filterArticles = (term, category) => {
-    let filtered = articles
+    try {
+      if (!articles || !Array.isArray(articles)) {
+        onFilter([])
+        return
+      }
 
-    if (term) {
-      filtered = filtered.filter(article =>
-        article.title.toLowerCase().includes(term.toLowerCase()) ||
-        article.excerpt.toLowerCase().includes(term.toLowerCase())
-      )
+      let filtered = articles
+
+      if (term) {
+        filtered = filtered.filter(article => {
+          const title = article?.title?.toLowerCase() || ''
+          const excerpt = article?.excerpt?.toLowerCase() || ''
+          const searchTerm = term.toLowerCase()
+          return title.includes(searchTerm) || excerpt.includes(searchTerm)
+        })
+      }
+
+      if (category !== 'All') {
+        filtered = filtered.filter(article => article?.category === category)
+      }
+
+      onFilter(filtered)
+    } catch (error) {
+      console.error('Error filtering articles:', error)
+      onFilter(articles || [])
     }
-
-    if (category !== 'All') {
-      filtered = filtered.filter(article => article.category === category)
-    }
-
-    onFilter(filtered)
   }
 
   const clearFilters = () => {

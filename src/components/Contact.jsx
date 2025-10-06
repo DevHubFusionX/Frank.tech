@@ -10,30 +10,54 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY)
+    try {
+      const publicKey = import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY
+      if (!publicKey) {
+        console.error('EmailJS public key not found in environment variables')
+        return
+      }
+      emailjs.init(publicKey)
+    } catch (error) {
+      console.error('Failed to initialize EmailJS:', error)
+    }
   }, [])
 
   const onSubmit = async (data) => {
     setIsSubmitting(true)
 
     try {
+      // Validate environment variables
+      const serviceId = import.meta.env.VITE_REACT_APP_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID
+      const publicKey = import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration is incomplete. Please contact the administrator.')
+      }
+
+      // Validate form data
+      if (!data.name?.trim() || !data.email?.trim() || !data.message?.trim()) {
+        throw new Error('Please fill in all required fields.')
+      }
+
       await emailjs.send(
-        import.meta.env.VITE_REACT_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID,
+        serviceId,
+        templateId,
         {
-          from_name: data.name,
-          from_email: data.email,
-          message: data.message,
+          from_name: data.name.trim(),
+          from_email: data.email.trim(),
+          message: data.message.trim(),
           to_name: 'Anyanwu Franklin'
         },
-        import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY
+        publicKey
       )
 
       setIsSubmitted(true)
       reset()
     } catch (error) {
       console.error('Email send failed:', error)
-      alert('Failed to send message. Please try again.')
+      const errorMessage = error.message || 'Failed to send message. Please try again or contact us directly.'
+      alert(errorMessage)
     } finally {
       setIsSubmitting(false)
     }

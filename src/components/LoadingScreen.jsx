@@ -7,7 +7,15 @@ export default function LoadingScreen({ onComplete }) {
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onAnimationComplete={() => setTimeout(onComplete, 2000)}
+      onAnimationComplete={() => {
+        try {
+          if (typeof onComplete === 'function') {
+            setTimeout(onComplete, 2000)
+          }
+        } catch (error) {
+          console.error('Error in loading screen completion:', error)
+        }
+      }}
     >
       {/* <ThreeBackground /> */}
 
