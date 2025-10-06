@@ -1,10 +1,38 @@
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useRef, useMemo } from 'react'
+import { useRef, useMemo, useEffect, useState } from 'react'
 import * as THREE from 'three'
 
+// Get CSS variable value
+function getCSSVariable(name) {
+  if (typeof window !== 'undefined') {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+  }
+  return '#4080ff'
+}
+
+// Convert CSS color to hex
+function getThemeColor() {
+  const primaryColor = getCSSVariable('--color-primary')
+  return primaryColor || '#4080ff'
+}
+
 // Floating tech cubes with neon glow
-function TechCube({ position, delay, color = "#00ff88" }) {
+function TechCube({ position, delay, colorIndex = 0 }) {
   const meshRef = useRef()
+  const [color, setColor] = useState('#4080ff')
+  
+  useEffect(() => {
+    const themeColor = getThemeColor()
+    const colors = [
+      themeColor,
+      '#00ff88',
+      '#ff0080',
+      '#ffff00',
+      '#ff8800',
+      '#8800ff'
+    ]
+    setColor(colors[colorIndex % colors.length])
+  }, [])
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -35,6 +63,11 @@ function TechCube({ position, delay, color = "#00ff88" }) {
 // Circuit board lines
 function CircuitLine({ start, end, delay = 0 }) {
   const lineRef = useRef()
+  const [color, setColor] = useState('#4080ff')
+  
+  useEffect(() => {
+    setColor(getThemeColor())
+  }, [])
 
   useFrame((state) => {
     if (lineRef.current) {
@@ -58,7 +91,7 @@ function CircuitLine({ start, end, delay = 0 }) {
           itemSize={3}
         />
       </bufferGeometry>
-      <lineBasicMaterial color="#00ffff" transparent opacity={0.4} />
+      <lineBasicMaterial color={color} transparent opacity={0.4} />
     </line>
   )
 }
@@ -66,6 +99,11 @@ function CircuitLine({ start, end, delay = 0 }) {
 // Data stream particles
 function DataStream({ position, direction, count = 8 }) {
   const particlesRef = useRef()
+  const [color, setColor] = useState('#ff0080')
+  
+  useEffect(() => {
+    setColor(getThemeColor())
+  }, [])
 
   useFrame((state) => {
     if (particlesRef.current) {
@@ -86,7 +124,7 @@ function DataStream({ position, direction, count = 8 }) {
         <mesh key={i} position={position}>
           <sphereGeometry args={[0.05]} />
           <meshBasicMaterial
-            color="#ff0080"
+            color={color}
             transparent
             opacity={0.6}
           />
@@ -99,6 +137,11 @@ function DataStream({ position, direction, count = 8 }) {
 // Hexagonal tech patterns
 function HexPattern({ position, size = 1 }) {
   const hexRef = useRef()
+  const [color, setColor] = useState('#00ff88')
+  
+  useEffect(() => {
+    setColor(getThemeColor())
+  }, [])
 
   useFrame((state) => {
     if (hexRef.current) {
@@ -132,7 +175,7 @@ function HexPattern({ position, size = 1 }) {
     <mesh ref={hexRef} position={position}>
       <extrudeGeometry args={[hexShape, { depth: 0.1, bevelEnabled: false }]} />
       <meshBasicMaterial
-        color="#00ff88"
+        color={color}
         transparent
         opacity={0.5}
         wireframe
@@ -144,12 +187,12 @@ function HexPattern({ position, size = 1 }) {
 function TechyBackground() {
   // Tech cubes with different colors
   const techCubes = useMemo(() => [
-    { pos: [-3, 2, -1], delay: 0, color: "#00ff88" },
-    { pos: [3, -1, 1], delay: 1, color: "#0088ff" },
-    { pos: [0, 3, -2], delay: 2, color: "#ff0080" },
-    { pos: [-2, -2, 2], delay: 3, color: "#ffff00" },
-    { pos: [2, 1, -1], delay: 4, color: "#ff8800" },
-    { pos: [-1, 0, 3], delay: 5, color: "#8800ff" }
+    { pos: [-3, 2, -1], delay: 0, colorIndex: 0 },
+    { pos: [3, -1, 1], delay: 1, colorIndex: 1 },
+    { pos: [0, 3, -2], delay: 2, colorIndex: 2 },
+    { pos: [-2, -2, 2], delay: 3, colorIndex: 3 },
+    { pos: [2, 1, -1], delay: 4, colorIndex: 4 },
+    { pos: [-1, 0, 3], delay: 5, colorIndex: 5 }
   ], [])
 
   // Circuit connections
@@ -184,7 +227,7 @@ function TechyBackground() {
           key={`cube-${i}`}
           position={cube.pos}
           delay={cube.delay}
-          color={cube.color}
+          colorIndex={cube.colorIndex}
         />
       ))}
 

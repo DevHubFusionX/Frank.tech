@@ -96,7 +96,10 @@ export default function TermsOfService() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-500 to-blue-600 rounded-full mb-6">
+          <div 
+            className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6"
+            style={{ backgroundColor: 'var(--color-primary)' }}
+          >
             <FileText className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-5xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>Terms of Service</h1>
@@ -141,7 +144,10 @@ export default function TermsOfService() {
                 whileHover={{ y: -5 }}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-lg flex items-center justify-center">
+                  <div 
+                    className="w-12 h-12 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: 'var(--color-primary)' }}
+                  >
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
                   <h2 className="text-2xl font-bold" style={{ color: 'var(--color-text-primary)' }}>{section.title}</h2>
@@ -152,7 +158,10 @@ export default function TermsOfService() {
                 <ul className="space-y-3">
                   {section.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <div 
+                        className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                        style={{ backgroundColor: 'var(--color-primary)' }}
+                      ></div>
                       <span style={{ color: 'var(--color-text-secondary)' }}>{item}</span>
                     </li>
                   ))}

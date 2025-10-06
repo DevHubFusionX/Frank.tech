@@ -62,7 +62,10 @@ export default function PrivacyPolicy() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6">
+          <div 
+            className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6"
+            style={{ backgroundColor: 'var(--color-primary)' }}
+          >
             <Shield className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-5xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>Privacy Policy</h1>
@@ -107,7 +110,10 @@ export default function PrivacyPolicy() {
                 whileHover={{ y: -5 }}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                  <div 
+                    className="w-12 h-12 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: 'var(--color-primary)' }}
+                  >
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
                   <h2 className="text-2xl font-bold" style={{ color: 'var(--color-text-primary)' }}>{section.title}</h2>
@@ -118,7 +124,10 @@ export default function PrivacyPolicy() {
                 <ul className="space-y-3">
                   {section.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <div 
+                        className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                        style={{ backgroundColor: 'var(--color-primary)' }}
+                      ></div>
                       <span style={{ color: 'var(--color-text-secondary)' }}>{item}</span>
                     </li>
                   ))}
@@ -130,23 +139,25 @@ export default function PrivacyPolicy() {
 
         {/* Contact Section */}
         <motion.div
-          className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-center text-white"
+          className="rounded-2xl p-8 text-center text-white"
+          style={{ backgroundColor: 'var(--color-primary)' }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <Mail className="w-12 h-12 mx-auto mb-4" />
           <h2 className="text-2xl font-bold mb-4">Questions About Privacy?</h2>
-          <p className="text-blue-100 mb-6">
+          <p className="text-white/80 mb-6">
             If you have any questions about this privacy policy or how your data is handled, 
             feel free to reach out.
           </p>
           <a 
-            href="mailto:fanyanwu83@gmail.com" 
-            className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-full font-medium hover:bg-blue-50 transition-colors"
+            href="mailto:anyanwufranklin@gmail.com" 
+            className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+            style={{ color: 'var(--color-primary)' }}
           >
             <Mail className="w-4 h-4" />
-           fanyanwu83@gmail.com
+            anyanwufranklin@gmail.com
           </a>
         </motion.div>
       </div>
