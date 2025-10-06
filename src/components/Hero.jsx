@@ -14,7 +14,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden theme-primary" >
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden " >
       <ThreeBackground />
       <div className="text-center max-w-4xl mx-auto px-6 relative z-30">
         <motion.h1

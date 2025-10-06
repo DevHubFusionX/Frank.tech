@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Star, X, Heart, Zap, Coffee } from 'lucide-react'
+import { Star, X, Heart, Zap, Coffee, Rocket } from 'lucide-react'
 
 export default function FeedbackNotification() {
   const [isVisible, setIsVisible] = useState(false)
@@ -73,7 +73,7 @@ export default function FeedbackNotification() {
                 </div>
                 
                 <p className="text-gray-600 mb-6 text-sm">
-                  How's your experience on my website so far? 🚀
+                  How's your experience on my website so far? <Rocket/>
                 </p>
                 
                 <div className="grid grid-cols-2 gap-3">

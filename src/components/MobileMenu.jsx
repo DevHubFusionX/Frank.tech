@@ -45,7 +45,7 @@ export default function MobileMenu({ isOpen, onClose }) {
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-black/50 z-40"
+            className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -184,7 +184,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                   <h3 className="text-sm font-semibold mb-4" style={{ color: 'var(--color-text-secondary)' }}>Quick Contact</h3>
                   <div className="space-y-2">
                     <a
-                      href="mailto:anyanwufranklin@gmail.com"
+                      href="mailto:fanyanwu83@gmail.com"
                       className="mobile-nav-item block text-sm"
                     >
                       📧 Email Me

@@ -43,7 +43,7 @@ export default function ThankYou() {
               Back to Home
             </button>
             <button 
-              onClick={() => window.open('https://wa.me/2348000000000', '_blank')}
+              onClick={() => window.open('https://wa.me/2349127391830', '_blank')}
               className="btn-secondary px-6 py-3 rounded-full font-medium flex items-center gap-2"
             >
               <MessageCircle className="w-5 h-5" />

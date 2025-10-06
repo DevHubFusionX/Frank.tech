@@ -1,14 +1,24 @@
 import { motion } from 'framer-motion'
 import { Download, Mail, Phone, MapPin, Globe, Github, Linkedin, Code, Award, Briefcase, GraduationCap, User } from 'lucide-react'
-
+import cvFile from '../assets/Franklyn_Anyanwu_FullStack_Developer_CV.pdf'
 export default function InteractiveCV() {
+
+const handleDownload = () => {
+    const link = document.createElement('a')
+    link.href = cvFile
+    link.download = 'Franklyn_Anyanwu_FullStack_Developer_CV.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   const personalInfo = {
     name: "Franklyn Anyanwu",
     title: "Full-Stack MERN Developer",
     email: "fanyanwu83@gmail.com",
-    phone: "+234 XXX XXX XXXX",
+    phone: "+234 8030531624",
     location: "Nigeria",
-    website: "https://my-portfolio-liart-eight-59.vercel.app",
+    website: "https://franklin-anyanwu.vercel.app/",
     github: "https://github.com/franklynux",
     linkedin: "https://linkedin.com/in/franklyn-anyanwu"
   }
@@ -119,7 +129,7 @@ export default function InteractiveCV() {
                 </div>
               </div>
             </div>
-            <button className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            <button onClick={handleDownload} className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
               <Download className="w-4 h-4" />
               Download PDF
             </button>

@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion'
 import { MessageCircle, Palette, Code, Rocket, TestTube, Handshake } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+
 
 export default function Process() {
+  const navigate = useNavigate()
+
   const steps = [
     {
       icon: <MessageCircle className="w-8 h-8" />,
@@ -104,7 +108,7 @@ export default function Process() {
           <p className="text-gray-600 mb-6">
             Ready to start your project? Let's discuss your requirements!
           </p>
-          <button className="btn-primary px-8 py-3 rounded-full font-medium">
+          <button onClick={() => navigate('/contact')} className="btn-primary px-8 py-3 rounded-full font-medium">
             Start Your Project
           </button>
         </motion.div>

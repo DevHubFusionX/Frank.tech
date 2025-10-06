@@ -5,7 +5,7 @@ export default function Pricing() {
   const packages = [
     {
       name: 'Landing Page',
-      price: '$299',
+      price: '$150',
       duration: '1-2 weeks',
       description: 'Perfect for showcasing your business or personal brand',
       features: [
@@ -20,7 +20,7 @@ export default function Pricing() {
     },
     {
       name: 'Business Website',
-      price: '$599',
+      price: '$399',
       duration: '2-3 weeks',
       description: 'Complete website solution for growing businesses',
       features: [
@@ -59,9 +59,9 @@ export default function Pricing() {
     { name: 'Additional revisions', price: '$50/revision' },
     { name: 'Rush delivery (50% faster)', price: '+50% of package price' },
     { name: 'Extended support (3 months)', price: '$200' },
-    { name: 'WhatsApp integration', price: '$100' },
+    { name: 'WhatsApp integration', price: '$50' },
     { name: 'Payment gateway setup', price: '$150' },
-    { name: 'Advanced animations', price: '$200' }
+    { name: 'Advanced animations', price: '$70' }
   ]
 
   return (
@@ -103,7 +103,7 @@ export default function Pricing() {
               
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-black mb-2">{pkg.name}</h3>
-                <div className="text-4xl font-black text-black mb-2">{pkg.price}</div>
+                <div  className="text-4xl font-black text-black mb-2">{pkg.price}</div>
                 <p className="text-gray-500 text-sm mb-4">{pkg.duration}</p>
                 <p className="text-gray-600">{pkg.description}</p>
               </div>

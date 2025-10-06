@@ -48,7 +48,7 @@ export default function Education() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-start gap-6">
+            <div className="flex items-start gap-6 flex-col md:flex-row">
               <div className="bg-black text-white p-3 rounded-lg">
                 <GraduationCap className="w-8 h-8" />
               </div>

@@ -42,7 +42,7 @@ export default function Services() {
   ]
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 ">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           className="text-center mb-12 sm:mb-16"
@@ -73,7 +73,7 @@ export default function Services() {
               <ul className="space-y-2">
                 {service.features.map((feature, i) => (
                   <li key={i} className="text-sm text-gray-500 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full"></span>
+                    <span className="w-1.5 h-1.5 bg-gray-600 rounded-full"></span>
                     {feature}
                   </li>
                 ))}

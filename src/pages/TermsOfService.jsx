@@ -176,7 +176,7 @@ export default function TermsOfService() {
             don't hesitate to get in touch.
           </p>
           <a 
-            href="mailto:anyanwufranklin@gmail.com" 
+            href="mailto:fanyanwu83@gmail.com" 
             className="inline-flex items-center gap-2 bg-white text-green-600 px-6 py-3 rounded-full font-medium hover:bg-green-50 transition-colors"
           >
             <Mail className="w-4 h-4" />

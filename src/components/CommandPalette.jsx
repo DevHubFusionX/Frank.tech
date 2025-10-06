@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, Home, User, Briefcase, Mail, FileText, Command } from 'lucide-react'
+import { Search, Home, User, Briefcase, Mail, FileText, Command, Shield, BookOpenIcon, HelpCircle, IdCard,HandshakeIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+
 
 export default function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,9 +13,13 @@ export default function CommandPalette() {
     { id: 'home', label: 'Home', icon: Home, action: () => navigate('/') },
     { id: 'about', label: 'About Me', icon: User, action: () => navigate('/about') },
     { id: 'portfolio', label: 'Portfolio', icon: Briefcase, action: () => navigate('/portfolio') },
-    { id: 'services', label: 'Services', icon: FileText, action: () => navigate('/services') },
+    { id: 'services', label: 'Services', icon: HandshakeIcon, action: () => navigate('/services') },
     { id: 'contact', label: 'Contact', icon: Mail, action: () => navigate('/contact') },
-    { id: 'cv', label: 'My CV', icon: FileText, action: () => navigate('/cv') },
+    { id: 'cv', label: 'Cv', icon: IdCard, action: () => navigate('/cv') },
+    { id: 'faq', label: 'FAQ', icon: HelpCircle, action: () => navigate('/faq') },
+    { id: 'terms', label: 'Terms of service', icon: FileText, action: () => navigate('/terms') },
+    { id: 'privacy', label: 'privacy policy', icon: Shield, action: () => navigate('/privacy') },
+    { id: 'blog', label: 'Blog', icon: BookOpenIcon, action: () => navigate('/blog') },
   ]
 
   const filteredCommands = commands.filter(cmd =>
@@ -47,7 +52,7 @@ export default function CommandPalette() {
     <>
       {/* Trigger Hint - Desktop Only */}
       <motion.div
-        className="fixed bottom-6 right-24 z-40 px-3 py-2 rounded-lg text-sm flex items-center gap-2 hidden md:flex"
+        className="fixed bottom-6 right-24 z-40 px-3 py-2 rounded-lg text-sm items-center gap-2 hidden md:flex"
         style={{ 
           backgroundColor: 'var(--color-bg-secondary)', 
           color: 'var(--color-text-primary)',

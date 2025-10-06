@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function CountUp({ end, duration = 2000 }) {
+
+  
+
+
   const [count, setCount] = useState(0)
   const [ref, inView] = useInView({ triggerOnce: true })
 
@@ -64,8 +69,9 @@ export default function Stats() {
     }
   ]
 
+  const navigate = useNavigate()
   return (
-    <section className="py-12 sm:py-20" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
+    <section className="py-12 sm:py-20" >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           className="text-center mb-12 sm:mb-16"
@@ -115,12 +121,12 @@ export default function Stats() {
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-6 sm:p-8">
+          <div className="bg-gray-800 text-white rounded-lg p-6 sm:p-8">
             <h3 className="text-xl sm:text-2xl font-bold mb-4">Ready to Join These Success Stories?</h3>
             <p className="text-blue-100 mb-6 text-sm sm:text-base">
               Let's work together to create your next successful web application
             </p>
-            <button className="bg-white text-blue-600 px-6 sm:px-8 py-3 rounded-full font-medium hover:bg-blue-50 transition-colors w-full sm:w-auto">
+            <button onClick={() => navigate('/contact')} className="bg-white text-blue-600 px-6 sm:px-8 py-3 rounded-full font-medium hover:bg-blue-50 transition-colors w-full sm:w-auto">
               Start Your Project
             </button>
           </div>

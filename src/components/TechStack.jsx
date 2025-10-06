@@ -51,7 +51,7 @@ export default function TechStack() {
     },
     {
       title: 'Tools & Services',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-gray-800 to-red-500',
       technologies: [
         { name: 'Git & GitHub', icon: <TechIcon IconComponent={GitBranch} color="text-gray-800" /> },
         { name: 'VS Code', icon: <TechIcon IconComponent={Monitor} color="text-blue-600" /> },

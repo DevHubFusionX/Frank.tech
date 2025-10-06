@@ -8,7 +8,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-20 ">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           className="grid md:grid-cols-2 gap-8 md:gap-16 items-center"

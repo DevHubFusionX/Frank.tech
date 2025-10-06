@@ -14,6 +14,8 @@ function TechCube({ position, delay, color = "#00ff88" }) {
       meshRef.current.rotation.z = time * 0.1 + delay
       meshRef.current.position.y = position[1] + Math.sin(time * 0.8 + delay) * 0.3
       meshRef.current.position.x = position[0] + Math.sin(time * 0.5 + delay) * 0.2
+      meshRef.current.rotation.z = position[2] + Math.sin(time * 0.5 + delay) * 0.4
+
     }
   })
 
@@ -202,7 +204,7 @@ function TechyBackground() {
           key={`stream-${i}`}
           position={stream.pos}
           direction={stream.dir}
-          count={6}
+          count={10}
         />
       ))}
 

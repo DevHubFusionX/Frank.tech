@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion'
 import { Building2, Zap, Globe, Rocket, Monitor, Palette, ShoppingBag, Truck } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 export default function ClientLogos() {
+
+  const navigate = useNavigate()
+
+
+
   const clients = [
     { 
       name: 'Moderate Textile', 
@@ -108,7 +114,7 @@ export default function ClientLogos() {
           <p className="text-gray-600 mb-6">
             Ready to join these successful companies?
           </p>
-          <button className="btn-primary px-8 py-3 rounded-full font-medium">
+          <button onClick={() => navigate('/contact')} className="btn-primary px-8 py-3 rounded-full font-medium" >
             Start Your Project
           </button>
         </motion.div>

@@ -24,21 +24,21 @@ export default function CTA() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Ready to Build Something Amazing?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Let's turn your ideas into a powerful web application that drives results
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
+            <button
               onClick={() => navigate('/contact')}
               className="bg-white text-black px-8 py-4 rounded-full font-medium flex items-center gap-2 hover:bg-gray-100 transition-colors"
             >
               Start Your Project
               <ArrowRight className="w-5 h-5" />
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('contact')}
               className="border border-white text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 hover:bg-white hover:text-black transition-colors"
             >
@@ -47,15 +47,15 @@ export default function CTA() {
             </button>
           </div>
         </motion.div>
-        
+
         {/* Secondary CTAs */}
         <div className="grid md:grid-cols-2 gap-8">
           <ResumeDownload />
-          
+
           <motion.div
             className="bg-gradient-to-br from-green-500 to-teal-600 text-white rounded-xl p-8"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
@@ -63,7 +63,8 @@ export default function CTA() {
             <p className="text-green-100 mb-6">
               30-minute call to discuss your project and explore possibilities
             </p>
-            <button 
+            <button
+
               onClick={() => navigate('/contact')}
               className="bg-white text-green-600 px-6 py-3 rounded-full font-medium flex items-center gap-2 hover:bg-green-50 transition-colors"
             >
@@ -72,7 +73,7 @@ export default function CTA() {
             </button>
           </motion.div>
         </div>
-        
+
         {/* Availability Status */}
         <motion.div
           className="text-center mt-16"

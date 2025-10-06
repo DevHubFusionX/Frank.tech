@@ -40,7 +40,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 ">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16"
@@ -68,7 +68,7 @@ export default function Contact() {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-600">anyanwufranklin@gmail.com</span>
+                <span className="text-gray-600">fanyanwu83@gmail.com</span>
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="w-5 h-5 text-gray-400" />
@@ -111,7 +111,7 @@ export default function Contact() {
                   <input
                     {...register('name', { required: 'Name is required' })}
                     placeholder="Your Name"
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors ${errors.name ? 'border-red-500' : 'border-gray-200 focus:border-black'
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors ${errors.name ? 'border-red-500' : 'border-gray-400 focus:border-black'
                       }`}
                   />
                   {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
@@ -127,7 +127,7 @@ export default function Contact() {
                     })}
                     type="email"
                     placeholder="Your Email"
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors ${errors.email ? 'border-red-500' : 'border-gray-200 focus:border-black'
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors ${errors.email ? 'border-red-500' : 'border-gray-400 focus:border-black'
                       }`}
                   />
                   {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
@@ -137,7 +137,7 @@ export default function Contact() {
                     {...register('message', { required: 'Message is required' })}
                     placeholder="Your Message"
                     rows={5}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors resize-none ${errors.message ? 'border-red-500' : 'border-gray-200 focus:border-black'
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors resize-none ${errors.message ? 'border-red-500' : 'border-gray-400 focus:border-black'
                       }`}
                   />
                   {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}

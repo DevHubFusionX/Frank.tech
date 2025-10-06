@@ -12,7 +12,7 @@ const ContactPage = () => {
                   <div className="max-w-4xl mx-auto px-6 text-center">
                       <h1 className="text-5xl font-bold text-black mb-6">Contact Me</h1>
                       <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                         get in-touch so we can bring your idea to life 
+                         Get in-touch so we can bring your idea to life 
                       </p>
                   </div>
               </div>
