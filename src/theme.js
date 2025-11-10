@@ -1,23 +1,23 @@
 export const theme = {
   colors: {
-    primary: '#000000',
-    secondary: '#ffffff',
-    accent: '#333333',
+    primary: '#00D4FF',
+    secondary: '#0A0E27',
+    accent: '#1E293B',
     text: {
-      primary: '#000000',
-      secondary: '#666666',
-      inverse: '#ffffff'
+      primary: '#00D4FF',
+      secondary: '#94A3B8',
+      inverse: '#0A0E27'
     },
     background: {
-      primary: '#ffffff',
-      secondary: '#f8f9fa',
-      dark: '#000000'
+      primary: '#0A0E27',
+      secondary: '#1E293B',
+      dark: '#020617'
     },
-    border: '#e5e5e5'
+    border: '#334155'
   },
 
   gradients: {
-    primary: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
-    subtle: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)'
+    primary: 'linear-gradient(135deg, #00D4FF 0%, #0EA5E9 100%)',
+    subtle: 'linear-gradient(135deg, #1E293B 0%, #0A0E27 100%)'
   }
 }

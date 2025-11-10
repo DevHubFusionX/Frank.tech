@@ -40,7 +40,7 @@ export default function CTA() {
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="border border-white text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 hover:bg-white hover:text-black transition-colors"
+              className=" border-white text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 hover:bg-white hover:text-black transition-colors"
             >
               <MessageCircle className="w-5 h-5" />
               Let's Chat

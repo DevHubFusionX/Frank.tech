@@ -92,7 +92,7 @@ export default function Contact() {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-600">fanyanwu83@gmail.com</span>
+                <span className="text-gray-600">anyanwufranklin.dev@gmail.com</span>
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="w-5 h-5 text-gray-400" />

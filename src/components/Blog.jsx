@@ -51,7 +51,7 @@ export default function Blog() {
           {articles.map((article, index) => (
             <motion.article
               key={`article-${index}`}
-              className="bg-white rounded-lg overflow-hidden shadow-sm border group cursor-pointer"
+              className="bg-white rounded-lg overflow-hidden shadow-md group cursor-pointer"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}

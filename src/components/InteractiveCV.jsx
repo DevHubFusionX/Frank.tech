@@ -3,7 +3,7 @@ import { Download, Mail, Phone, MapPin, Globe, Github, Linkedin, Code, Award, Br
 import cvFile from '../assets/Franklyn_Anyanwu_FullStack_Developer_CV.pdf'
 export default function InteractiveCV() {
 
-const handleDownload = () => {
+  const handleDownload = () => {
     const link = document.createElement('a')
     link.href = cvFile
     link.download = 'Franklyn_Anyanwu_FullStack_Developer_CV.pdf'
@@ -15,7 +15,7 @@ const handleDownload = () => {
   const personalInfo = {
     name: "Franklyn Anyanwu",
     title: "Full-Stack MERN Developer",
-    email: "fanyanwu83@gmail.com",
+    email: "anyanwufranklin.dev@gmail.com",
     phone: "+234 8030531624",
     location: "Nigeria",
     website: "https://franklin-anyanwu.vercel.app/",

@@ -83,7 +83,7 @@ export default function TechStack() {
           {techCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              className="bg-white rounded-lg p-6 shadow-sm border"
+              className="bg-white rounded-lg p-6 shadow-sm "
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
@@ -123,7 +123,7 @@ export default function TechStack() {
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="bg-white rounded-lg p-8 shadow-sm border">
+          <div className="bg-white rounded-lg p-8 shadow-sm ">
             <h3 className="text-2xl font-bold text-black mb-4">Always Learning</h3>
             <p className="text-gray-600 mb-6">
               Currently exploring: Next.js, Serverless Architecture, AI Integration

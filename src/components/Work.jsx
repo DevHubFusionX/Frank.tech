@@ -74,7 +74,7 @@ export default function Work() {
               whileHover={{ y: -5 }}
               onClick={() => setSelectedProject(project)}
             >
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg border">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg ">
                 <div className="h-48 relative overflow-hidden">
                   {typeof project.image === 'string' && project.image.startsWith('bg-') ? (
                     <div className={`h-full ${project.image}`}></div>

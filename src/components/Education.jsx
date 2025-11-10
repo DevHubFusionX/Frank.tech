@@ -42,7 +42,7 @@ export default function Education() {
         {education.map((edu, index) => (
           <motion.div
             key={index}
-            className="bg-white rounded-lg p-8 shadow-sm border"
+            className="bg-white rounded-lg p-8 shadow-md"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}

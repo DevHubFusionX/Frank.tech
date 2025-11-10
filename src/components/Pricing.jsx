@@ -84,7 +84,7 @@ export default function Pricing() {
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.name}
-              className={`bg-white rounded-lg p-8 shadow-sm border relative ${
+              className={`bg-white rounded-lg p-8 shadow-sm  relative ${
                 pkg.popular ? 'ring-2 ring-black' : ''
               }`}
               initial={{ opacity: 0, y: 50 }}
@@ -129,7 +129,7 @@ export default function Pricing() {
         </div>
         
         <motion.div
-          className="bg-white rounded-lg p-8 shadow-sm border"
+          className="bg-white rounded-lg p-8 shadow-sm "
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}

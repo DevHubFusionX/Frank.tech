@@ -51,7 +51,7 @@ export default function MobileMenu({ isOpen, onClose }) {
             exit={{ opacity: 0 }}
             onClick={onClose}
           />
-          
+
           {/* Menu */}
           <motion.div
             className="fixed top-0 right-0 h-full w-80 mobile-sidebar z-50"
@@ -82,7 +82,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                   {navItems.map((item) => {
                     const isActive = currentPath === item.href || (item.id === 'home' && currentPath === '/')
                     const isHashLink = item.href.includes('#')
-                    
+
                     if (isHashLink) {
                       return (
                         <a
@@ -92,30 +92,28 @@ export default function MobileMenu({ isOpen, onClose }) {
                             e.preventDefault()
                             handleLinkClick(item.href)
                           }}
-                          className={`mobile-nav-item block ${
-                            isActive ? 'active' : ''
-                          }`}
+                          className={`mobile-nav-item block ${isActive ? 'active' : ''
+                            }`}
                         >
                           {item.label}
                         </a>
                       )
                     }
-                    
+
                     return (
                       <Link
                         key={item.id}
                         to={item.href}
                         onClick={() => handleLinkClick(item.href)}
-                        className={`mobile-nav-item block ${
-                          isActive ? 'active' : ''
-                        }`}
+                        className={`mobile-nav-item block ${isActive ? 'active' : ''
+                          }`}
                       >
                         {item.label}
                       </Link>
                     )
                   })}
                 </nav>
-                
+
                 {/* Resources Dropdown */}
                 <div className="mt-8 pt-6" style={{ borderTop: `1px solid var(--color-border)` }}>
                   <button
@@ -125,7 +123,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                     <span>Resources</span>
                     <ChevronDown className={`w-4 h-4 transition-transform ${isResourcesOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  
+
                   <AnimatePresence>
                     {isResourcesOpen && (
                       <motion.div
@@ -178,13 +176,13 @@ export default function MobileMenu({ isOpen, onClose }) {
                     )}
                   </AnimatePresence>
                 </div>
-                
+
                 {/* Quick Actions */}
                 <div className="mt-6 pt-6" style={{ borderTop: `1px solid var(--color-border)` }}>
                   <h3 className="text-sm font-semibold mb-4" style={{ color: 'var(--color-text-secondary)' }}>Quick Contact</h3>
                   <div className="space-y-2">
                     <a
-                      href="mailto:fanyanwu83@gmail.com"
+                      href="mailto:anyanwufranklin.dev@gmail.com"
                       className="mobile-nav-item block text-sm"
                     >
                       📧 Email Me

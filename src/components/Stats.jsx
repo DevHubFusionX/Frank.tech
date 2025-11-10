@@ -71,62 +71,97 @@ export default function Stats() {
 
   const navigate = useNavigate()
   return (
-    <section className="py-12 sm:py-20" >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="py-12 sm:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
-          className="text-center mb-12 sm:mb-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          className="mb-8 sm:mb-12"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>Results That Matter</h2>
-          <p className="text-base sm:text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
-            Numbers that showcase the impact of quality development work
-          </p>
-        </motion.div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              className="text-center"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: 'var(--color-text-primary)' }}>Results That Matter</h2>
+              <p className="text-base sm:text-lg mt-2 max-w-2xl" style={{ color: 'var(--color-text-secondary)' }}>
+                Numbers that showcase the impact of quality development work
+              </p>
+            </div>
+            <button
+              onClick={() => navigate('/contact')}
+              className="hidden sm:inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"
+              style={{ backgroundColor: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', color: 'var(--color-text-primary)' }}
             >
-              <div 
-                className="rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                style={{ 
-                  backgroundColor: 'var(--color-bg-secondary)', 
-                  border: '1px solid var(--color-border)' 
-                }}
+              Start Your Project
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 auto-rows-[minmax(120px,_auto)] gap-4 sm:gap-5 lg:gap-6">
+          {stats.map((stat, index) => {
+            // Define bento spans for a pleasing mosaic
+            const spans = [
+              'sm:col-span-3 lg:col-span-4 sm:row-span-2',
+              'sm:col-span-3 lg:col-span-4 sm:row-span-1',
+              'sm:col-span-3 lg:col-span-4 sm:row-span-1',
+              'sm:col-span-3 lg:col-span-3 sm:row-span-2',
+              'sm:col-span-3 lg:col-span-5 sm:row-span-2',
+              'sm:col-span-6 lg:col-span-4 sm:row-span-1',
+            ]
+            const spanClass = spans[index % spans.length]
+
+            return (
+              <motion.div
+                key={stat.label}
+                className={`${spanClass}`}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.06 }}
+                viewport={{ once: true }}
               >
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-black mb-2" style={{ color: 'var(--color-text-primary)' }}>
-                  <CountUp end={stat.number} />
-                  <span>{stat.suffix}</span>
+                <div
+                  className="h-full rounded-xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                  style={{ backgroundColor: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)' }}
+                >
+                  <div>
+                    <div className="text-4xl sm:text-5xl font-extrabold tracking-tight" style={{ color: 'var(--color-text-primary)' }}>
+                      <CountUp end={stat.number} />
+                      <span>{stat.suffix}</span>
+                    </div>
+                    <h3 className="mt-2 text-lg font-semibold" style={{ color: 'var(--color-text-primary)' }}>{stat.label}</h3>
+                    <p className="mt-1 text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>{stat.description}</p>
+                  </div>
+
+                  {/* subtle footer line for depth */}
+                  <div className="mt-4 pt-3 text-xs flex items-center justify-between border-t" style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}>
+                    <span>Updated quarterly</span>
+                    <span className="opacity-70">↗</span>
+                  </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold mb-2" style={{ color: 'var(--color-text-primary)' }}>{stat.label}</h3>
-                <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>{stat.description}</p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
-        
+
+        {/* CTA for mobile */}
         <motion.div
-          className="text-center mt-12 sm:mt-16"
+          className="sm:hidden mt-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gray-800 text-white rounded-lg p-6 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4">Ready to Join These Success Stories?</h3>
-            <p className="text-blue-100 mb-6 text-sm sm:text-base">
+          <div className="rounded-xl p-6" style={{ backgroundColor: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)' }}>
+            <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>Ready to Join These Success Stories?</h3>
+            <p className="mb-4 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
               Let's work together to create your next successful web application
             </p>
-            <button onClick={() => navigate('/contact')} className="bg-white text-blue-600 px-6 sm:px-8 py-3 rounded-full font-medium hover:bg-blue-50 transition-colors w-full sm:w-auto">
+            <button
+              onClick={() => navigate('/contact')}
+              className="w-full rounded-full px-6 py-3 text-sm font-semibold shadow-sm transition-colors"
+              style={{ backgroundColor: 'var(--color-text-primary)', color: 'var(--color-bg-primary)' }}
+            >
               Start Your Project
             </button>
           </div>

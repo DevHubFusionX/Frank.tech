@@ -88,7 +88,7 @@ export default function ClientLogos() {
                 viewport={{ once: true }}
                 whileHover={{ y: -8, scale: 1.02 }}
               >
-                <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-lg transition-all duration-300 text-center group-hover:border-gray-300">
+                <div className="bg-white rounded-xl p-6 shadow-sm  hover:shadow-lg transition-all duration-300 text-center group-hover:border-gray-300">
                   <div className={`w-16 h-16 ${client.color} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>

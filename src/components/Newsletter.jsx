@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Mail, Send, CheckCircle } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import emailjs from 'emailjs-com'
-
+import { Newspaper, RocketIcon, StarIcon, Rocket, Monitor, Palette, ShoppingBag, Truck } from 'lucide-react'
 export default function Newsletter() {
   const [email, setEmail] = useState('')
   const [isSubscribed, setIsSubscribed] = useState(false)
@@ -61,7 +61,7 @@ export default function Newsletter() {
 
   return (
     <motion.div
-      className="bg-gradient-to-br from-gray-900 to-black text-white rounded-lg p-8"
+      className="bg-gradient-to-br from-gray-900 to-black text-white rounded-lg p-8 "
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -112,9 +112,9 @@ export default function Newsletter() {
       
       <div className="mt-6 pt-6 border-t border-white/10">
         <div className="flex items-center justify-between text-sm text-gray-400">
-          <span>📧 Weekly newsletter</span>
-          <span>🚀 500+ subscribers</span>
-          <span>⭐ No spam policy</span>
+          <span className=''><Newspaper/> Weekly newsletter</span>
+          <span><RocketIcon /> 500+ subscribers</span>
+          <span><StarIcon/> No spam policy</span>
         </div>
       </div>
     </motion.div>

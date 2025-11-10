@@ -55,7 +55,7 @@ export default function Experience() {
             >
               <div className="relative z-10 w-4 h-4 bg-black rounded-full mt-2"></div>
               
-              <div className="flex-1 bg-white rounded-lg p-6 shadow-sm border">
+              <div className="flex-1 bg-white rounded-lg p-6 shadow-md ">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-black">{exp.title}</h3>

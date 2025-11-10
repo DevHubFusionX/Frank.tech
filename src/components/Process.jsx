@@ -71,7 +71,7 @@ export default function Process() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white rounded-lg p-6 shadow-sm border h-full">
+              <div className="bg-white rounded-lg p-6 shadow-md h-full">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-black text-white p-3 rounded-lg">
                     {step.icon}

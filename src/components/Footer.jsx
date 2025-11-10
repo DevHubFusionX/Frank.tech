@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" style={{ color: 'var(--color-text-secondary)' }} />
-                <span className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>fanyanwu83@gmail.com</span>
+                <span className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>anyanwufranklin.dev@gmail.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" style={{ color: 'var(--color-text-secondary)' }} />
