@@ -1,2 +1,137 @@
 @import 'tailwindcss';
-;
+;;
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient wash layer */
+.hero-wash {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(135deg, var(--washA, #00D4FF33) 0%, var(--washB, #0EA5E922) 50%, transparent 100%);
+  filter: blur(60px);
+  animation: hero-sheen 18s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes hero-sheen {
+  0% { transform: translate3d(-10%, -10%, 0) rotate(0deg); }
+  50% { transform: translate3d(10%, 10%, 0) rotate(180deg); }
+  100% { transform: translate3d(-10%, -10%, 0) rotate(360deg); }
+}
+
+/* Floating particles */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(0,212,255,0.66) 40%, transparent 41%),
+    radial-gradient(2px 2px at 40% 70%, rgba(14,165,233,0.66) 40%, transparent 41%),
+    radial-gradient(2px 2px at 70% 40%, rgba(0,212,255,0.66) 40%, transparent 41%),
+    radial-gradient(1px 1px at 85% 60%, rgba(148,163,184,0.66) 40%, transparent 41%);
+  animation: drift 22s ease-in-out infinite alternate;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+@keyframes drift {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-20px) translateX(10px); }
+}
+
+/* Scanlines overlay */
+.scanlines {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.15;
+  z-index: 2;
+}
+
+/* HUD frame + corner accents */
+.hud-frame {
+  position: relative;
+  border: 1px solid #334155;
+  box-shadow: 0 0 0 1px #334155, 0 0 22px rgba(0,212,255,0.13);
+  z-index: 3;
+}
+.hud-frame::before,
+.hud-frame::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  filter: drop-shadow(0 0 6px rgba(0,212,255,1));
+  pointer-events: none;
+}
+.hud-frame::before {
+  top: -1px; left: -1px;
+  border-top: 2px solid #00D4FF;
+  border-left: 2px solid #00D4FF;
+}
+.hud-frame::after {
+  bottom: -1px; right: -1px;
+  border-bottom: 2px solid #00D4FF;
+  border-right: 2px solid #00D4FF;
+}
+
+/* Neon text and CTA */
+.neon {
+  color: #00D4FF;
+  text-shadow: 0 0 12px rgba(0,212,255,0.53), 0 0 28px rgba(14,165,233,0.4);
+}
+
+.btn-neon,
+.btn-ghost {
+  appearance: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.8rem 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-neon {
+  background: #00D4FF;
+  color: #0A0E27;
+  border: 1px solid #334155;
+  box-shadow: 0 0 12px rgba(0,212,255,0.53);
+}
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(0,212,255,0.67), 0 0 40px rgba(14,165,233,0.5);
+}
+.btn-neon:active {
+  transform: translateY(0);
+  box-shadow: 0 0 10px rgba(0,212,255,0.5);
+}
+
+/* Optional focus styles */
+.btn-neon:focus-visible,
+.btn-ghost:focus-visible {
+  outline: 2px solid rgba(0,212,255,0.9);
+  outline-offset: 2px;
+}
+
+/* Ghost button */
+.btn-ghost {
+  background: transparent;
+  color: #00D4FF;
+  border: 1px solid #334155;
+}
+.btn-ghost:hover {
+  border-color: rgba(0,212,255,0.6);
+  box-shadow: 0 0 16px rgba(0,212,255,0.25);
+}

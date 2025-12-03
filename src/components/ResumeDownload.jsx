@@ -18,42 +18,51 @@ export default function ResumeDownload() {
 
   return (
     <motion.div
-      className="bg-gray-800  text-white rounded-xl p-8"
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      className="relative overflow-hidden rounded-[2.5rem] p-8 sm:p-10"
+      style={{
+        background: 'var(--color-bg-secondary)',
+        border: '1px solid var(--color-border)'
+      }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
+      whileHover={{ y: -5 }}
     >
-      <div className="flex items-center gap-4 mb-6">
-        <div className="bg-white/20 p-3 rounded-lg">
-          <FileText className="w-8 h-8" />
+      {/* Glass/Liquid Effect Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-50" />
+
+      <div className="relative z-10">
+        <div className="flex items-start justify-between mb-8">
+          <div className="p-4 rounded-2xl bg-blue-500/10 text-blue-500">
+            <FileText className="w-8 h-8" />
+          </div>
+          <div className="px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 text-xs font-bold uppercase tracking-wider">
+            PDF
+          </div>
         </div>
-        <div>
-          <h3 className="text-2xl font-bold">My Resume</h3>
-          <p className="text-blue-100">Download my complete CV</p>
+
+        <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>My Resume</h3>
+        <p className="mb-8 text-sm leading-relaxed opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
+          Get a detailed overview of my skills, experience, projects, and achievements in web development.
+        </p>
+
+        <div className="flex flex-col gap-3">
+          <button
+            onClick={handleDownload}
+            className="w-full bg-blue-600 text-white px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+          >
+            <Download className="w-5 h-5" />
+            Download CV
+          </button>
+          <button
+            onClick={handlePreview}
+            className="w-full bg-transparent border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all"
+          >
+            <Eye className="w-5 h-5" />
+            Preview
+          </button>
         </div>
-      </div>
-      
-      <p className="text-blue-100 mb-6">
-        Get a detailed overview of my skills, experience, projects, and achievements in web development.
-      </p>
-      
-      <div className="flex flex-col sm:flex-row gap-3">
-        <button
-        
-          onClick={handleDownload}
-          className="bg-white text-blue-600 px-6 py-3 rounded-full font-medium flex items-center gap-2 hover:bg-blue-50 transition-colors"
-        >
-          <Download className="w-5 h-5" />
-          Download CV
-        </button>
-        <button
-          onClick={handlePreview}
-          className="border border-white text-white px-6 py-3 rounded-full font-medium flex items-center gap-2 hover:bg-white/10 transition-colors"
-        >
-          <Eye className="w-5 h-5" />
-          Preview
-        </button>
       </div>
     </motion.div>
   )

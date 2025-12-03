@@ -10,7 +10,8 @@ export default function Testimonials() {
       company: 'E-commerce Platform',
       rating: 5,
       text: 'Exceptional work on our e-commerce platform. The WhatsApp integration and admin dashboard exceeded our expectations. Delivered on time with clean, maintainable code.',
-      avatar: 'bg-gradient-to-br from-pink-400 to-purple-500'
+      gradient: 'from-pink-500 via-purple-500 to-indigo-500',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop' // Placeholder
     },
     {
       name: 'Anyanwu Christopher',
@@ -18,7 +19,8 @@ export default function Testimonials() {
       company: 'Personal Crypto Vendor',
       rating: 5,
       text: 'Outstanding corporate website that perfectly aligned with our branding objectives. The responsive design and attention to detail were impressive.',
-      avatar: 'bg-gradient-to-br from-blue-400 to-cyan-500'
+      gradient: 'from-blue-500 via-cyan-500 to-teal-500',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop'
     },
     {
       name: 'Clinton Ihemeji',
@@ -26,7 +28,8 @@ export default function Testimonials() {
       company: 'Solar Tech',
       rating: 5,
       text: 'Great collaboration on translating our Figma designs into a functional web application. The performance optimization results were remarkable - 30%+ improvement!',
-      avatar: 'bg-gradient-to-br from-green-400 to-teal-500'
+      gradient: 'from-green-500 via-emerald-500 to-teal-500',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop'
     },
     {
       name: 'Amara Okeke',
@@ -34,7 +37,8 @@ export default function Testimonials() {
       company: 'Fintech SaaS',
       rating: 5,
       text: 'Delivered a robust MVP with authentication, billing, and analytics. Communication was clear throughout and iteration speed was impressive.',
-      avatar: 'bg-gradient-to-br from-amber-400 to-red-500'
+      gradient: 'from-amber-500 via-orange-500 to-red-500',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop'
     },
     {
       name: 'Daniel Peters',
@@ -42,7 +46,8 @@ export default function Testimonials() {
       company: 'Media Startup',
       rating: 4,
       text: 'Solid engineering practices and thoughtful component architecture. Lighthouse scores improved significantly without sacrificing UX.',
-      avatar: 'bg-gradient-to-br from-indigo-400 to-violet-500'
+      gradient: 'from-indigo-500 via-violet-500 to-purple-500',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop'
     }
   ]), [])
 
@@ -58,107 +63,107 @@ export default function Testimonials() {
     setIndex((i) => (i - 1 + testimonials.length) % testimonials.length)
   }
 
-  // autoplay
   useEffect(() => {
-    const id = setInterval(() => next(), 5000)
+    const id = setInterval(() => next(), 6000)
     return () => clearInterval(id)
   }, [testimonials.length])
-
-  const variants = {
-    enter: (dir) => ({ opacity: 0, x: dir > 0 ? 20 : -20 }),
-    center: { opacity: 1, x: 0 },
-    exit: (dir) => ({ opacity: 0, x: dir > 0 ? -20 : 20 })
-  }
 
   const current = testimonials[index]
 
   return (
-    <section className="py-20">
-      <div className="max-w-5xl mx-auto px-6">
-        <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-10"
+    <section className="relative py-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          style={{ color: 'var(--color-text-primary)' }}
+          className="rounded-3xl overflow-hidden shadow-2xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)]"
         >
-          Client Testimonials
-        </motion.h2>
+          <div className="grid lg:grid-cols-2 min-h-[450px]">
 
-        {/* Carousel */}
-        <div
-          className="relative rounded-2xl overflow-hidden"
-          style={{ backgroundColor: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)' }}
-        >
-          <div className="p-6 sm:p-10 min-h-[260px] sm:min-h-[280px]">
-            <AnimatePresence custom={direction} mode="wait">
-              <motion.div
-                key={index}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-                className="grid md:grid-cols-[1fr_2fr] gap-6 items-center"
-              >
-                <div className="flex md:flex-col items-center md:items-start gap-4">
-                  <div className={`w-14 h-14 rounded-full ${current.avatar}`} />
-                  <div>
-                    <h4 className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>{current.name}</h4>
-                    <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>{current.role}</p>
-                    <p className="text-xs opacity-70" style={{ color: 'var(--color-text-secondary)' }}>{current.company}</p>
-                  </div>
-                </div>
+            {/* Left Side: Content */}
+            <div className="relative p-6 sm:p-10 lg:p-12 flex flex-col justify-center z-10">
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: direction * 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: direction * -20 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="space-y-8 pb-16"
+                >
+                  <Quote className="w-12 h-12 text-[var(--color-accent)] opacity-50" />
 
-                <div>
-                  <Quote className="w-8 h-8 opacity-30 mb-3" style={{ color: 'var(--color-text-secondary)' }} />
-                  <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
+                  <blockquote className="text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight" style={{ color: 'var(--color-text-primary)' }}>
                     "{current.text}"
-                  </p>
-                  <div className="mt-4 flex items-center gap-1">
+                  </blockquote>
+
+                  <div className="flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${current.gradient} p-0.5`}>
+                      <div className="w-full h-full rounded-full bg-[var(--color-bg-secondary)] flex items-center justify-center overflow-hidden">
+                        {/* Small avatar fallback if needed, or just gradient ring */}
+                        <img src={current.image} alt={current.name} className="w-full h-full object-cover opacity-80" />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-lg" style={{ color: 'var(--color-text-primary)' }}>{current.name}</div>
+                      <div className="text-sm opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
+                        {current.role} • {current.company}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-1">
                     {Array.from({ length: current.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                </motion.div>
+              </AnimatePresence>
 
-          {/* Controls */}
-          <div className="absolute inset-y-0 left-0 flex items-center pl-2">
-            <button
-              aria-label="Previous testimonial"
-              onClick={prev}
-              className="p-2 rounded-full shadow-sm backdrop-blur bg-white/70 hover:bg-white transition"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-          </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-            <button
-              aria-label="Next testimonial"
-              onClick={next}
-              className="p-2 rounded-full shadow-sm backdrop-blur bg-white/70 hover:bg-white transition"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+              {/* Navigation Controls (Bottom Left) */}
+              <div className="absolute bottom-8 right-8 lg:left-12 lg:right-auto flex gap-3">
+                <button onClick={prev} className="p-3 rounded-full border border-[var(--color-border)] hover:bg-[var(--color-bg-primary)] transition-colors" aria-label="Previous">
+                  <ChevronLeft className="w-5 h-5" style={{ color: 'var(--color-text-primary)' }} />
+                </button>
+                <button onClick={next} className="p-3 rounded-full border border-[var(--color-border)] hover:bg-[var(--color-bg-primary)] transition-colors" aria-label="Next">
+                  <ChevronRight className="w-5 h-5" style={{ color: 'var(--color-text-primary)' }} />
+                </button>
+              </div>
+            </div>
 
-          {/* Dots */}
-          <div className="flex items-center justify-center gap-2 pb-4">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i) }}
-                className={`h-1.5 rounded-full transition-all ${i === index ? 'w-6 bg-blue-500' : 'w-3 bg-gray-300'}`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
-            ))}
+            {/* Right Side: Visual */}
+            <div className="relative overflow-hidden hidden lg:block">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="absolute inset-0"
+                >
+                  {/* Background Image/Gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${current.gradient} opacity-20 mix-blend-overlay`} />
+                  <img
+                    src={current.image}
+                    alt="Testimonial Background"
+                    className="w-full h-full object-cover grayscale-[30%] contrast-125"
+                  />
+
+                  {/* Gradient Overlays for Cinematic Look */}
+                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[var(--color-bg-secondary)]/20 to-[var(--color-bg-secondary)]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-secondary)]/80 to-transparent opacity-60" />
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Decorative Elements */}
+              <div className="absolute top-10 right-10 w-20 h-20 border border-white/10 rounded-full opacity-50" />
+              <div className="absolute bottom-20 left-20 w-32 h-32 border border-white/5 rounded-full opacity-30" />
+            </div>
+
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

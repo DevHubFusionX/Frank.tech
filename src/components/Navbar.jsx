@@ -12,12 +12,15 @@ export default function Navbar() {
   const currentPath = location.pathname
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const navItems = [
-    { id: 'home', label: 'Home', href: '/' },
+  // Group navigation items for better UX
+  const primaryNavItems = [
     { id: 'about', label: 'About', href: '/about' },
     { id: 'services', label: 'Services', href: '/services' },
-    { id: 'portfolio', label: 'Portfolio', href: '/portfolio' },
-    { id: 'blog', label: 'Blog', href: '/blog' },
+    { id: 'portfolio', label: 'Work', href: '/portfolio' }, // Shortened label
+    { id: 'blog', label: 'Blog', href: '/blog' }
+  ]
+  
+  const secondaryNavItems = [
     { id: 'contact', label: 'Contact', href: '/contact' }
   ]
 
@@ -30,34 +33,50 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="navbar-pill backdrop-blur-xl shadow-2xl">
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-12"> {/* Increased gap for longer navbar */}
             <Logo />
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => (
+            <div className="hidden lg:flex items-center gap-2"> {/* Increased gap between nav items */}
+              {primaryNavItems.map((item) => (
                 <NavItem
                   key={item.id}
                   href={item.href}
-                  isActive={currentPath === item.href || (item.id === 'home' && currentPath === '/')}
+                  isActive={currentPath === item.href}
                 >
                   {item.label}
                 </NavItem>
               ))}
-              <div className="w-px h-6 mx-3" style={{ backgroundColor: 'var(--color-border)' }} />
-              <ThemeToggle />
+              
+              {/* Separator with contact and theme toggle */}
+              <div className="flex items-center ml-6">
+                <div className="w-px h-4 mx-4" style={{ backgroundColor: 'var(--color-border)' }} />
+                {secondaryNavItems.map((item) => (
+                  <NavItem
+                    key={item.id}
+                    href={item.href}
+                    isActive={currentPath === item.href}
+                    className="contact-nav-item" // Special styling for contact
+                  >
+                    {item.label}
+                  </NavItem>
+                ))}
+                <div className="w-px h-4 mx-4" style={{ backgroundColor: 'var(--color-border)' }} />
+                <ThemeToggle />
+              </div>
             </div>
 
             {/* Mobile Controls */}
-            <div className="lg:hidden flex items-center gap-4">
+            <div className="lg:hidden flex items-center gap-3"> {/* Reduced gap */}
               <ThemeToggle />
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="p-2 rounded-lg transition-all duration-200 hover:scale-105"
+                className="p-2 rounded-full transition-all duration-200 hover:scale-105 active:scale-95" // Changed to rounded-full for better UX
                 style={{
                   backgroundColor: 'var(--color-bg-secondary)',
                   color: 'var(--color-text-primary)'
                 }}
+                aria-label="Open menu"
               >
                 <Menu className="w-5 h-5" />
               </button>

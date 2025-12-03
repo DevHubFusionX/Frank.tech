@@ -9,14 +9,16 @@ export default function MobileMenu({ isOpen, onClose }) {
   const currentPath = location.pathname
   const [isResourcesOpen, setIsResourcesOpen] = useState(false)
 
-  const navItems = [
+  // Match the main navbar structure
+  const primaryNavItems = [
     { id: 'home', label: 'Home', href: '/' },
     { id: 'about', label: 'About', href: '/about' },
     { id: 'services', label: 'Services', href: '/services' },
-    { id: 'portfolio', label: 'Portfolio', href: '/portfolio' },
-    { id: 'blog', label: 'Blog', href: '/blog' },
-    { id: 'contact', label: 'Contact', href: '/contact' }
+    { id: 'portfolio', label: 'Work', href: '/portfolio' },
+    { id: 'blog', label: 'Blog', href: '/blog' }
   ]
+  
+  const contactNavItem = { id: 'contact', label: 'Contact', href: '/contact' }
 
   const handleLinkClick = (href) => {
     if (href.includes('#')) {
@@ -54,7 +56,7 @@ export default function MobileMenu({ isOpen, onClose }) {
 
           {/* Menu */}
           <motion.div
-            className="fixed top-0 right-0 h-full w-80 mobile-sidebar z-50"
+            className="fixed top-0 right-0 h-full mobile-sidebar z-50"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -79,7 +81,8 @@ export default function MobileMenu({ isOpen, onClose }) {
             <div className="mobile-sidebar-content">
               <div className="p-6">
                 <nav className="space-y-2">
-                  {navItems.map((item) => {
+                  {/* Primary Navigation */}
+                  {primaryNavItems.map((item) => {
                     const isActive = currentPath === item.href || (item.id === 'home' && currentPath === '/')
                     const isHashLink = item.href.includes('#')
 
@@ -92,8 +95,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                             e.preventDefault()
                             handleLinkClick(item.href)
                           }}
-                          className={`mobile-nav-item block ${isActive ? 'active' : ''
-                            }`}
+                          className={`mobile-nav-item block ${isActive ? 'active' : ''}`}
                         >
                           {item.label}
                         </a>
@@ -105,22 +107,33 @@ export default function MobileMenu({ isOpen, onClose }) {
                         key={item.id}
                         to={item.href}
                         onClick={() => handleLinkClick(item.href)}
-                        className={`mobile-nav-item block ${isActive ? 'active' : ''
-                          }`}
+                        className={`mobile-nav-item block ${isActive ? 'active' : ''}`}
                       >
                         {item.label}
                       </Link>
                     )
                   })}
+                  
+                  {/* Contact - Special styling */}
+                  <div className="pt-2 mt-2" style={{ borderTop: `1px solid var(--color-border)` }}>
+                    <Link
+                      to={contactNavItem.href}
+                      onClick={() => handleLinkClick(contactNavItem.href)}
+                      className={`mobile-nav-item block contact-nav-item ${currentPath === contactNavItem.href ? 'active' : ''}`}
+                    >
+                      {contactNavItem.label}
+                    </Link>
+                  </div>
                 </nav>
 
                 {/* Resources Dropdown */}
-                <div className="mt-8 pt-6" style={{ borderTop: `1px solid var(--color-border)` }}>
+                <div className="mt-6 pt-4" style={{ borderTop: `1px solid var(--color-border)` }}>
                   <button
                     onClick={() => setIsResourcesOpen(!isResourcesOpen)}
-                    className="flex items-center justify-between w-full text-left mobile-nav-item mb-2"
+                    className="flex items-center justify-between w-full text-left mobile-nav-item mb-2 text-sm"
+                    style={{ color: 'var(--color-text-secondary)' }}
                   >
-                    <span>Resources</span>
+                    <span>More</span>
                     <ChevronDown className={`w-4 h-4 transition-transform ${isResourcesOpen ? 'rotate-180' : ''}`} />
                   </button>
 
@@ -178,12 +191,12 @@ export default function MobileMenu({ isOpen, onClose }) {
                 </div>
 
                 {/* Quick Actions */}
-                <div className="mt-6 pt-6" style={{ borderTop: `1px solid var(--color-border)` }}>
-                  <h3 className="text-sm font-semibold mb-4" style={{ color: 'var(--color-text-secondary)' }}>Quick Contact</h3>
-                  <div className="space-y-2">
+                <div className="mt-4 pt-4" style={{ borderTop: `1px solid var(--color-border)` }}>
+                  <h3 className="text-xs font-semibold mb-3 uppercase tracking-wider" style={{ color: 'var(--color-text-secondary)' }}>Quick Contact</h3>
+                  <div className="space-y-1">
                     <a
                       href="mailto:anyanwufranklin.dev@gmail.com"
-                      className="mobile-nav-item block text-sm"
+                      className="mobile-nav-item block text-sm py-2"
                     >
                       📧 Email Me
                     </a>
@@ -191,7 +204,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                       href="https://wa.me/2349127391830"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mobile-nav-item block text-sm"
+                      className="mobile-nav-item block text-sm py-2"
                     >
                       💬 WhatsApp
                     </a>

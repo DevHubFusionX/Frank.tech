@@ -46,13 +46,13 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <button 
+          <button
             onClick={() => navigate('/portfolio')}
             className="btn-primary px-6 sm:px-8 py-3 rounded-full font-medium w-full sm:w-auto"
           >
             View Projects
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('contact')}
             className="btn-secondary px-6 sm:px-8 py-3 rounded-full font-medium w-full sm:w-auto"
           >

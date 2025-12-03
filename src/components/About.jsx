@@ -20,7 +20,7 @@ export default function About() {
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{ color: 'var(--color-text-primary)' }}>About Me</h2>
             <p className="text-gray-600 text-lg mb-6">
-              I'm Anyanwu Franklin, an 18-year-old results-driven Full-Stack MERN Developer with a strong
+              I'm Anyanwu Franklin, an 19-year-old results-driven Full-Stack MERN Developer with a strong
               track record of designing, developing, and deploying high-performance web applications.
               I specialize in building secure authentication systems, RESTful APIs, and optimized user interfaces.
             </p>

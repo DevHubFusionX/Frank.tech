@@ -13,7 +13,7 @@ export default function Work() {
   const filteredProjects = projects.filter(project => {
     const matchesCategory = selectedFilter === 'All' || project.category === selectedFilter
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase())
+      project.description.toLowerCase().includes(searchTerm.toLowerCase())
     return matchesCategory && matchesSearch
   })
 
@@ -32,7 +32,7 @@ export default function Work() {
         >
           Featured Projects
         </motion.h2>
-        
+
         {/* Filter and Search */}
         <div className="flex flex-col md:flex-row gap-4 mb-12">
           <div className="flex flex-wrap gap-2">
@@ -40,11 +40,10 @@ export default function Work() {
               <button
                 key={category}
                 onClick={() => setSelectedFilter(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedFilter === category
-                    ? 'bg-black text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedFilter === category
+                  ? 'bg-black text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
               >
                 {category}
               </button>
@@ -74,15 +73,15 @@ export default function Work() {
               whileHover={{ y: -5 }}
               onClick={() => setSelectedProject(project)}
             >
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg ">
+              <div className="bg-white  overflow-hidden shadow-lg ">
                 <div className="h-48 relative overflow-hidden">
                   {typeof project.image === 'string' && project.image.startsWith('bg-') ? (
                     <div className={`h-full ${project.image}`}></div>
                   ) : (
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   )}
                   {project.status && (
@@ -102,7 +101,7 @@ export default function Work() {
                     ))}
                   </div>
                   <div className="flex gap-3">
-                    <button 
+                    <button
                       onClick={(e) => {
                         e.stopPropagation()
                         window.open(project.liveUrl, '_blank')
@@ -111,7 +110,7 @@ export default function Work() {
                     >
                       <ExternalLink className="w-5 h-5 text-gray-400 hover:text-black transition-colors" />
                     </button>
-                    <button 
+                    <button
                       onClick={(e) => {
                         e.stopPropagation()
                         window.open(project.githubUrl, '_blank')
@@ -149,9 +148,9 @@ export default function Work() {
         {/* Project Case Study Modal */}
         <AnimatePresence>
           {selectedProject && (
-            <ProjectCaseStudy 
-              project={selectedProject} 
-              onClose={() => setSelectedProject(null)} 
+            <ProjectCaseStudy
+              project={selectedProject}
+              onClose={() => setSelectedProject(null)}
             />
           )}
         </AnimatePresence>
