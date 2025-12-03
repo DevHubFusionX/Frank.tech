@@ -6,7 +6,7 @@ export default function ProjectCaseStudy({ project, onClose }) {
   if (!project) return null
 
   const study = caseStudies?.[project?.title]
-  
+
   if (!study) {
     return (
       <motion.div
@@ -19,7 +19,7 @@ export default function ProjectCaseStudy({ project, onClose }) {
         <div className="bg-white rounded-lg p-8 text-center max-w-md">
           <h3 className="text-xl font-bold mb-4">Case Study Not Available</h3>
           <p className="text-gray-600 mb-4">Detailed case study for this project is coming soon.</p>
-          <button 
+          <button
             onClick={onClose}
             className="px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
           >
@@ -93,7 +93,15 @@ export default function ProjectCaseStudy({ project, onClose }) {
             <div className="grid md:grid-cols-3 gap-4">
               {(study?.screenshots || []).map((screenshot, index) => (
                 <div key={index} className="relative">
-                  <div className={`h-48 ${screenshot.color} rounded-lg`}></div>
+                  {screenshot.image ? (
+                    <img
+                      src={screenshot.image}
+                      alt={screenshot.title}
+                      className="h-48 w-full object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow"
+                    />
+                  ) : (
+                    <div className={`h-48 ${screenshot.color} rounded-lg`}></div>
+                  )}
                   <p className="text-center mt-2 text-sm font-medium">{screenshot.title}</p>
                 </div>
               ))}

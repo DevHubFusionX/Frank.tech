@@ -65,7 +65,7 @@ export default function Work() {
           {displayedProjects.map((project, index) => (
             <motion.div
               key={project.title}
-              className="group cursor-pointer"
+              className="group cursor-pointer h-full"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -73,15 +73,15 @@ export default function Work() {
               whileHover={{ y: -5 }}
               onClick={() => setSelectedProject(project)}
             >
-              <div className="bg-white  overflow-hidden shadow-lg ">
-                <div className="h-48 relative overflow-hidden">
+              <div className="bg-white overflow-hidden shadow-lg h-full flex flex-col">
+                <div className="h-48 relative overflow-hidden flex-shrink-0">
                   {typeof project.image === 'string' && project.image.startsWith('bg-') ? (
                     <div className={`h-full ${project.image}`}></div>
                   ) : (
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-cover"
                     />
                   )}
                   {project.status && (
@@ -90,15 +90,20 @@ export default function Work() {
                     </span>
                   )}
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl font-bold text-black mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3 flex-grow">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4 min-h-[2rem]">
+                    {project.tech.slice(0, 3).map((tech) => (
                       <span key={tech} className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium">
                         {tech}
                       </span>
                     ))}
+                    {project.tech.length > 3 && (
+                      <span className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-500">
+                        +{project.tech.length - 3}
+                      </span>
+                    )}
                   </div>
                   <div className="flex gap-3">
                     <button
