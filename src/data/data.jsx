@@ -1,18 +1,33 @@
 import {
   DevStackGenerator,
   LogisticWebsite,
+  LucisPhotography,
   PersonalCryptoVendor,
   PersonalWebsiteEcommerce,
   SolarCompanyWebsite,
-  TvflixMovie
+  TvflixMovie,
+  // Screenshot Images
+  DevStackDashboard,
+  DaraHome,
+  DaraDashboard,
+  DaraTrackPage,
+  AboutModerateTextile,
+  ModerateTextileServices,
+  LucisHome,
+  LucisContact,
+  SolarHome,
+  SolarService,
+  SolarContact,
+  RemcxlSolarService
 } from '../assets/image'
 
 const ProjectLinks = {
   'Logistic Website': 'https://logistics-khaki-three.vercel.app/',
+  'LUCIS Photography Booking': 'https://lucis-ph.vercel.app/',
   'Personal Crypto Vendor': 'https://chris-jdr.vercel.app/',
   'Personal Ecommerce Store': 'https://auduo.vercel.app/',
   'Personal Website Ecommerce': 'https://moderate-textile.vercel.app/',
-  'Solar Company Website': 'https://drmcxl-solar.vercel.app/',
+  'Solar Company Website': 'https://dremcxl-solar.vercel.app/',
   'Tvflix Movie Platform': 'https://fullstack-movie-app-master.vercel.app/',
 }
 const ProjectGithubLinks = {
@@ -20,6 +35,7 @@ const ProjectGithubLinks = {
   'DevStack Generator': '#',
   'Dinero Croc Ecommerce': '#',
   'Logistic Website': '#',
+  'LUCIS Photography Booking': '#',
   'Peller Corporate Website': '#',
   'Personal Crypto Vendor': '#',
   'Personal Ecommerce Store': '#',
@@ -49,6 +65,16 @@ export const projects = [
     category: 'Full-Stack',
     liveUrl: ProjectLinks['Logistic Website'],
     githubUrl: ProjectGithubLinks['Logistic Website']
+  },
+  {
+    id: 5,
+    title: 'LUCIS Photography Booking',
+    description: 'Premium photography booking platform connecting clients with professional photographers',
+    tech: ['React', 'Node.js', 'Tailwind CSS', 'REST API'],
+    image: LucisPhotography,
+    category: 'Full-Stack',
+    liveUrl: ProjectLinks['LUCIS Photography Booking'],
+    githubUrl: ProjectGithubLinks['LUCIS Photography Booking']
   },
 
   {
@@ -109,7 +135,11 @@ export const caseStudies = {
     team: 'Solo Developer',
     technologies: ['React.js', 'Node.js', 'CLI Tools', 'File System APIs'],
     features: ['Project template generation', 'Custom configurations', 'Multiple tech stacks', 'CLI interface', 'File structure creation', 'Dependency management'],
-    screenshots: [{ title: 'Generator Interface', color: 'bg-gradient-to-br from-purple-500 to-pink-600' }, { title: 'Configuration Panel', color: 'bg-gradient-to-br from-blue-500 to-cyan-600' }, { title: 'Generated Project', color: 'bg-gradient-to-br from-green-500 to-emerald-600' }]
+    screenshots: [
+      { title: 'Generator Interface', image: DevStackGenerator },
+      { title: 'Configuration Panel', image: DevStackDashboard },
+      { title: 'Generated Project', image: DevStackDashboard }
+    ]
   },
 
   'Logistic Website': {
@@ -121,7 +151,27 @@ export const caseStudies = {
     team: 'Solo Developer',
     technologies: ['React.js', 'Tailwind CSS', 'API Integration', 'Responsive Design'],
     features: ['Service showcase', 'Package tracking', 'Contact forms', 'Responsive design', 'API integration', 'Modern UI'],
-    screenshots: [{ title: 'Homepage', color: 'bg-gradient-to-br from-gray-500 to-blue-600' }, { title: 'Tracking Page', color: 'bg-gradient-to-br from-purple-500 to-indigo-600' }, { title: 'Services', color: 'bg-gradient-to-br from-teal-500 to-green-600' }]
+    screenshots: [
+      { title: 'Homepage', image: DaraHome },
+      { title: 'Tracking Page', image: DaraTrackPage },
+      { title: 'Services', image: DaraDashboard }
+    ]
+  },
+
+  'LUCIS Photography Booking': {
+    overview: 'Premium photography booking platform connecting clients with professional photographers.',
+    challenge: 'Creating an elegant, user-friendly platform that streamlines the photography booking process while showcasing photographer portfolios professionally.',
+    solution: 'Built a full-stack platform with React frontend and Node.js backend, featuring real-time booking, portfolio galleries, and seamless client-photographer communication.',
+    results: ['Streamlined booking process', 'Professional portfolio showcase', 'Enhanced client-photographer connection'],
+    timeline: '8 weeks',
+    team: 'Solo Developer',
+    technologies: ['React.js', 'Node.js', 'Tailwind CSS', 'REST API', 'MongoDB'],
+    features: ['Photographer portfolios', 'Real-time booking system', 'Client dashboard', 'Payment integration', 'Gallery management', 'Review system'],
+    screenshots: [
+      { title: 'Homepage', image: LucisHome },
+      { title: 'Booking System', image: LucisPhotography },
+      { title: 'Contact Page', image: LucisContact }
+    ]
   },
   'Personal Crypto Vendor': {
     overview: 'Cryptocurrency trading platform with real-time prices and portfolio management.',
@@ -132,7 +182,11 @@ export const caseStudies = {
     team: 'Solo Developer',
     technologies: ['React.js', 'Crypto APIs', 'Chart.js', 'WebSocket'],
     features: ['Real-time prices', 'Portfolio management', 'Trading interface', 'Price charts', 'Watchlist', 'Market analysis'],
-    screenshots: [{ title: 'Trading Dashboard', color: 'bg-gradient-to-br from-yellow-500 to-orange-600' }, { title: 'Portfolio View', color: 'bg-gradient-to-br from-green-500 to-teal-600' }, { title: 'Price Charts', color: 'bg-gradient-to-br from-blue-500 to-purple-600' }]
+    screenshots: [
+      { title: 'Trading Dashboard', image: PersonalCryptoVendor },
+      { title: 'Portfolio View', image: PersonalCryptoVendor },
+      { title: 'Price Charts', image: PersonalCryptoVendor }
+    ]
   },
 
   'Personal Website Ecommerce': {
@@ -144,7 +198,11 @@ export const caseStudies = {
     team: 'Solo Developer',
     technologies: ['React.js', 'Next.js', 'Tailwind CSS', 'Stripe'],
     features: ['Portfolio showcase', 'E-commerce integration', 'Blog section', 'Contact forms', 'SEO optimization', 'Responsive design'],
-    screenshots: [{ title: 'Portfolio Home', color: 'bg-gradient-to-br from-cyan-500 to-blue-600' }, { title: 'Shop Section', color: 'bg-gradient-to-br from-purple-500 to-pink-600' }, { title: 'About Page', color: 'bg-gradient-to-br from-green-500 to-teal-600' }]
+    screenshots: [
+      { title: 'Portfolio Home', image: PersonalWebsiteEcommerce },
+      { title: 'Shop Section', image: ModerateTextileServices },
+      { title: 'About Page', image: AboutModerateTextile }
+    ]
   },
 
   'Solar Company Website': {
@@ -156,7 +214,11 @@ export const caseStudies = {
     team: 'Solo Developer',
     technologies: ['React.js', 'Tailwind CSS', 'Contact Forms', 'Responsive Design'],
     features: ['Service showcase', 'Consultation booking', 'Contact forms', 'Responsive design', 'SEO optimization', 'Modern UI'],
-    screenshots: [{ title: 'Homepage', color: 'bg-gradient-to-br from-yellow-500 to-orange-600' }, { title: 'Services', color: 'bg-gradient-to-br from-green-500 to-teal-600' }, { title: 'Contact', color: 'bg-gradient-to-br from-blue-500 to-purple-600' }]
+    screenshots: [
+      { title: 'Homepage', image: SolarHome },
+      { title: 'Services', image: SolarService },
+      { title: 'Contact', image: SolarContact }
+    ]
   },
 
   'Tvflix Movie Platform': {
@@ -168,6 +230,10 @@ export const caseStudies = {
     team: 'Solo Developer',
     technologies: ['React.js', 'Node.js', 'Video APIs', 'MongoDB', 'Express.js'],
     features: ['Video streaming', 'User accounts', 'Watchlists', 'Search functionality', 'Responsive design', 'Admin panel'],
-    screenshots: [{ title: 'Home Page', color: 'bg-gradient-to-br from-red-500 to-pink-600' }, { title: 'Movie Player', color: 'bg-gradient-to-br from-blue-500 to-purple-600' }, { title: 'User Dashboard', color: 'bg-gradient-to-br from-green-500 to-teal-600' }]
+    screenshots: [
+      { title: 'Home Page', image: TvflixMovie },
+      { title: 'Movie Player', image: TvflixMovie },
+      { title: 'User Dashboard', image: TvflixMovie }
+    ]
   }
 }
